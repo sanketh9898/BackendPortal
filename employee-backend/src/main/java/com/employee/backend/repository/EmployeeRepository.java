@@ -10,9 +10,6 @@ import com.employee.backend.model.Employee;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, String>{
 
-	
-	
-	
 
 
 }

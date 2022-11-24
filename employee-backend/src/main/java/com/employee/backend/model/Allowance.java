@@ -19,9 +19,9 @@ public class Allowance {
     @Column(name="empId")
     private Integer empId;
 
-    @OneToMany
-    @JoinColumn(name = "userid")
-    private Set<User> userid;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(referencedColumnName = "userid")
+    private User user;
 
     @Column(name="Jan")
     private String jan;

@@ -22,7 +22,7 @@ public class UserRole implements Serializable {
     private Role roleId;
 
     @OneToMany(mappedBy = "UserId", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Set<User> user;
+    private User user;
 
 
 

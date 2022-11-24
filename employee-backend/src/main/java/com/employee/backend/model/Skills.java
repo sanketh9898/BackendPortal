@@ -1,24 +1,20 @@
 package com.employee.backend.model;
 
+
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
 
 @Entity
-@Table(name="AssetDetails")
+@Table(name="Skills")
 @Getter
 @Setter
 @Inheritance(strategy = InheritanceType.JOINED)
-public class AssetDetails implements Serializable {
+public class Skills implements Serializable {
 
     private static final long serialVersionUID = 4050660680047579957L;
-
-
-    @Column(name = "assetId")
-    private Integer assetId;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,18 +25,25 @@ public class AssetDetails implements Serializable {
     @JoinColumn(referencedColumnName="userId")
     private User user;
 
-    @Column(name = "empName")
-    private String empName;
+    @Column(name = "primarySkill")
+    private String primarySkill;
 
-    @Column(name = "seatId")
-    private String seatId;
+    @Column(name="portfolio")
+    private String portfolio;
 
-    @Column(name = "headPhone")
-    private String HeadPhone;
+    @Column(name="status")
+    private String status;
 
-    @Column(name = "Dongle")
-    private String dongle;
+    @Column(name="Experience")
+    private String experience;
+
+    @Column(name="SeniorDirector")
+    private String seniorDirector;
+
+    @Column(name="Application")
+    private String application;
+
+    @Column(name="certification")
+    private String certification;
+
 }
-
-
-

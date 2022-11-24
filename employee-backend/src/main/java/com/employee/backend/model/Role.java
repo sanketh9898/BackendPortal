@@ -13,11 +13,12 @@ import javax.persistence.*;
 public class Role {
 
     @Id
-    private String empId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="empId")
+    private Integer empId;
 
-    @OneToOne
-    @JoinColumn(name="roleId")
-    private UserRole role;
+    @Column(name="roleId")
+    private String role;
 
     @Column(name="roleName")
     private String roleName;

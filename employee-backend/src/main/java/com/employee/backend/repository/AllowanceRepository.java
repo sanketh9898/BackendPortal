@@ -8,10 +8,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface Allowancerepository extends JpaRepository<Allowance, String>{
+public interface AllowanceRepository extends JpaRepository<Allowance, String>{
 
     public List<Allowance> findAll();
 
-    public Allowance findById(Integer empId);
+    Allowance findById(Integer empId);
+
+    Allowance save(Allowance data);
 }
 

@@ -1,17 +1,14 @@
 package com.employee.backend.service;
 
-
 import com.employee.backend.helper.Response;
-import com.employee.backend.model.Allowance;
+import com.employee.backend.model.Assignments;
 
-import java.util.List;
-
-public interface AllowanceService {
+public interface AssignmentService {
 
     Response findAll() throws Exception;
 
     Response findById(Integer empId) throws Exception;
 
-    Response save(Allowance allowanceList) throws Exception;
+    Response save (Assignments assign) throws Exception;
 
 }
