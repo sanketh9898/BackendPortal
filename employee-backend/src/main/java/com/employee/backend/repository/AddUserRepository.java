@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface AddUserRepository extends CrudRepository<User, String> {
+public interface AddUserRepository extends JpaRepository<User, String> {
 
     public List<User> findAll();
 

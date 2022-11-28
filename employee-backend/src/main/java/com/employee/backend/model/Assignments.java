@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 @Entity
-@Table(name="UserRole")
+@Table(name="assignments")
 @Getter
 @Setter
 @Inheritance(strategy = InheritanceType.JOINED)

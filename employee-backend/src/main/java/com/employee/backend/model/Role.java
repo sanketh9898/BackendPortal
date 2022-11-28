@@ -23,5 +23,6 @@ public class Role {
     @Column(name="roleName")
     private String roleName;
 
-
+    @OneToOne(mappedBy = "role",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    private UserRole userRole;
 }

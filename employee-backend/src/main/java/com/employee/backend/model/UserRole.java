@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 @Entity
-@Table(name="UserRole")
+@Table(name="userRole")
 @Getter
 @Setter
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -16,12 +16,16 @@ public class UserRole implements Serializable {
     private static final long serialVersionUID = 4050660680047579957L;
 
     @Id
-    private String empId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="empId")
+    private Integer empId;
 
-    @OneToOne(mappedBy = "UserRole")
-    private Role roleId;
+    @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinColumn(referencedColumnName="roleId")
+    private Role role;
 
-    @OneToMany(mappedBy = "UserId", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(referencedColumnName = "userId")
     private User user;
 
 

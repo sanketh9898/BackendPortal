@@ -57,6 +57,7 @@ public class AddUserServiceImpl implements AddUserService{
         logger.info("AddUserServiceImpl ------Starts-----"+user);
 
         User userData = new User();
+        List<Skills> skills = new ArrayList<>();
         Skills skill = new Skills();
         AssetDetails assetDetails = new AssetDetails();
         Assignments assign = new Assignments();
@@ -65,6 +66,7 @@ public class AddUserServiceImpl implements AddUserService{
                 throw new Exception();
             }
             if(user.getEmpId() != null){
+
                 userData.setEmpId(user.getEmpId());
                 userData.setEmail(user.getEmail());
                 userData.setHomeManager(user.getHomeManager());
@@ -74,21 +76,21 @@ public class AddUserServiceImpl implements AddUserService{
                 userData.setWorkExp(user.getWorkExp());
 
                 skill.setEmpId(user.getEmpId());
-                skill.setApplication(user.getSkills().getApplication());
-                skill.setPortfolio(user.getSkills().getPortfolio());
-                skill.setCertification(user.getSkills().getCertification());
-                skill.setExperience(user.getSkills().getExperience());
-                skill.setStatus(user.getSkills().getStatus());
-                skill.setPrimarySkill(user.getSkills().getPrimarySkill());
-                skill.setSeniorDirector(user.getSkills().getSeniorDirector());
-
-                assetDetails.setAssetId(user.getAssetDetails().getAssetId());
-                assetDetails.setSeatId(user.getAssetDetails().getSeatId());
-                assetDetails.setHeadPhone(user.getAssetDetails().getHeadPhone());
-
-                assign.setProjectId(user.getAssignment().getProjectId());
-                assign.setProjectName(user.getAssignment().getProjectName());
-                assign.setTeam(user.getAssignment().getTeam());
+//                skill.setApplication(user.getSkills().getApplication());
+//                skill.setPortfolio(user.getSkills().getPortfolio());
+//                skill.setCertification(user.getSkills().getCertification());
+//                skill.setExperience(user.getSkills().getExperience());
+//                skill.setStatus(user.getSkills().getStatus());
+//                skill.setPrimarySkill(user.getSkills().getPrimarySkill());
+//                skill.setSeniorDirector(user.getSkills().getSeniorDirector());
+//
+//                assetDetails.setAssetId(user.getAssetDetails().getAssetId());
+//                assetDetails.setSeatId(user.getAssetDetails().getSeatId());
+//                assetDetails.setHeadPhone(user.getAssetDetails().getHeadPhone());
+//
+//                assign.setProjectId(user.getAssignment().getProjectId());
+//                assign.setProjectName(user.getAssignment().getProjectName());
+//                assign.setTeam(user.getAssignment().getTeam());
 
                 addUserRepository.save(userData);
                 skillsRepository.save(skill);
@@ -124,21 +126,21 @@ public class AddUserServiceImpl implements AddUserService{
             userData.setWorkExp(user.getWorkExp());
 
             skill.setEmpId(user.getEmpId());
-            skill.setApplication(user.getSkills().getApplication());
-            skill.setPortfolio(user.getSkills().getPortfolio());
-            skill.setCertification(user.getSkills().getCertification());
-            skill.setExperience(user.getSkills().getExperience());
-            skill.setStatus(user.getSkills().getStatus());
-            skill.setPrimarySkill(user.getSkills().getPrimarySkill());
-            skill.setSeniorDirector(user.getSkills().getSeniorDirector());
-
-            assetDetails.setAssetId(user.getAssetDetails().getAssetId());
-            assetDetails.setSeatId(user.getAssetDetails().getSeatId());
-            assetDetails.setHeadPhone(user.getAssetDetails().getHeadPhone());
-
-            assign.setProjectId(user.getAssignment().getProjectId());
-            assign.setProjectName(user.getAssignment().getProjectName());
-            assign.setTeam(user.getAssignment().getTeam());
+//            skill.setApplication("");
+//            skill.setPortfolio(user.getSkills().getPortfolio());
+//            skill.setCertification(user.getSkills().getCertification());
+//            skill.setExperience(user.getSkills().getExperience());
+//            skill.setStatus(user.getSkills().getStatus());
+//            skill.setPrimarySkill(user.getSkills().getPrimarySkill());
+//            skill.setSeniorDirector(user.getSkills().getSeniorDirector());
+//
+//            assetDetails.setAssetId(user.getAssetDetails().getAssetId());
+//            assetDetails.setSeatId(user.getAssetDetails().getSeatId());
+//            assetDetails.setHeadPhone(user.getAssetDetails().getHeadPhone());
+//
+//            assign.setProjectId(user.getAssignment().getProjectId());
+//            assign.setProjectName(user.getAssignment().getProjectName());
+//            assign.setTeam(user.getAssignment().getTeam());
 
             addUserRepository.save(userData);
             skillsRepository.save(skill);

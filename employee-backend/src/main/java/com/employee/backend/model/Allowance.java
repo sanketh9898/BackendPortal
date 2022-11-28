@@ -8,7 +8,7 @@ import java.util.Set;
 
 
 @Entity
-@Table(name="Internet_Allowance")
+@Table(name="internet_Allowance")
 @Getter
 @Setter
 @Inheritance(strategy = InheritanceType.JOINED)

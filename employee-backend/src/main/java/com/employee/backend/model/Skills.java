@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="Skills")
+@Table(name="skills")
 @Getter
 @Setter
 @Inheritance(strategy = InheritanceType.JOINED)

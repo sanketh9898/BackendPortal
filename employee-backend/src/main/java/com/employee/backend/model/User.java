@@ -6,10 +6,11 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name="User")
+@Table(name="user")
 @Getter
 @Setter
 public class User implements Serializable {
@@ -22,7 +23,7 @@ public class User implements Serializable {
     private Integer empId;
 
     @Column(name="userId")
-    private String UserId;
+    private String userId;
 
     @Column(name="name")
     private String name;
@@ -45,16 +46,35 @@ public class User implements Serializable {
     @Column(name="WrkExp")
     private String workExp;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private Allowance allowance;
+    @Transient
+    private List<Allowance> allowance;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private AssetDetails assetDetails ;
+    @Transient
+    private List<AssetDetails> assetDetails ;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private Assignments assignment;
+    @Transient
+    private List<Assignments> assignment;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private Skills skills;
+    @Transient
+    private List<Skills> skills;
+
+    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private UserRole userRole;
+
+    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private Skills skill;
+
+    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private Allowance allow;
+
+    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private AssetDetails details;
+
+    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private Assignments assign;
+
+
+
+
 
 }
