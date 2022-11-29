@@ -45,9 +45,9 @@ public class AddUserServiceImpl implements AddUserService{
     }
 
     @Override
-    public Response findById(Integer empId) throws Exception {
+    public Response findByUserId(Integer empId) throws Exception {
         logger.info(" AddUserServiceImpl------Starts-----"+ empId);
-        User userDetails = addUserRepository.findById(empId);
+        User userDetails = addUserRepository.findByUserId(empId);
         return ResponseHelper.getSuccessResponse("Success",userDetails,200,"Success");
     }
 
@@ -57,7 +57,6 @@ public class AddUserServiceImpl implements AddUserService{
         logger.info("AddUserServiceImpl ------Starts-----"+user);
 
         User userData = new User();
-        List<Skills> skills = new ArrayList<>();
         Skills skill = new Skills();
         AssetDetails assetDetails = new AssetDetails();
         Assignments assign = new Assignments();
@@ -76,21 +75,22 @@ public class AddUserServiceImpl implements AddUserService{
                 userData.setWorkExp(user.getWorkExp());
 
                 skill.setEmpId(user.getEmpId());
-//                skill.setApplication(user.getSkills().getApplication());
-//                skill.setPortfolio(user.getSkills().getPortfolio());
-//                skill.setCertification(user.getSkills().getCertification());
-//                skill.setExperience(user.getSkills().getExperience());
-//                skill.setStatus(user.getSkills().getStatus());
-//                skill.setPrimarySkill(user.getSkills().getPrimarySkill());
-//                skill.setSeniorDirector(user.getSkills().getSeniorDirector());
-//
-//                assetDetails.setAssetId(user.getAssetDetails().getAssetId());
-//                assetDetails.setSeatId(user.getAssetDetails().getSeatId());
-//                assetDetails.setHeadPhone(user.getAssetDetails().getHeadPhone());
-//
-//                assign.setProjectId(user.getAssignment().getProjectId());
-//                assign.setProjectName(user.getAssignment().getProjectName());
-//                assign.setTeam(user.getAssignment().getTeam());
+                skill.setApplication(user.getSkill().getApplication());
+                skill.setPortfolio(user.getSkill().getPortfolio());
+                skill.setCertification(user.getSkill().getCertification());
+                skill.setExperience(user.getSkill().getExperience());
+                skill.setStatus(user.getSkill().getStatus());
+                skill.setPrimarySkill(user.getSkill().getPrimarySkill());
+                skill.setSeniorDirector(user.getSkill().getSeniorDirector());
+
+                assetDetails.setAssetId(user.getDetails().getAssetId());
+                assetDetails.setSeatId(user.getDetails().getSeatId());
+                assetDetails.setHeadPhone(user.getDetails().getHeadPhone());
+
+                assign.setProjectId(user.getAssign().getProjectId());
+                assign.setProjectName(user.getAssign().getProjectName());
+                assign.setTeam(user.getAssign().getTeam());
+
 
                 addUserRepository.save(userData);
                 skillsRepository.save(skill);
@@ -107,10 +107,10 @@ public class AddUserServiceImpl implements AddUserService{
 
         logger.info("AddUserServiceImpl ------Starts-----"+user);
 
-        User userData = addUserRepository.findById(user.getEmpId());
-        Skills skill = skillsRepository.findById(user.getEmpId());
-        AssetDetails assetDetails = assetDetailsRepository.findById(user.getEmpId());
-        Assignments assign = assignmentRepository.findById(user.getEmpId());
+        User userData = addUserRepository.findByUserId(user.getEmpId());
+        Skills skill = skillsRepository.findByEmpId(user.getEmpId());
+        AssetDetails assetDetails = assetDetailsRepository.findByEmpId(user.getEmpId());
+        Assignments assign = assignmentRepository.findByEmpId(user.getEmpId());
 
 
         if(user.getEmpId() == null){
@@ -126,21 +126,21 @@ public class AddUserServiceImpl implements AddUserService{
             userData.setWorkExp(user.getWorkExp());
 
             skill.setEmpId(user.getEmpId());
-//            skill.setApplication("");
-//            skill.setPortfolio(user.getSkills().getPortfolio());
-//            skill.setCertification(user.getSkills().getCertification());
-//            skill.setExperience(user.getSkills().getExperience());
-//            skill.setStatus(user.getSkills().getStatus());
-//            skill.setPrimarySkill(user.getSkills().getPrimarySkill());
-//            skill.setSeniorDirector(user.getSkills().getSeniorDirector());
-//
-//            assetDetails.setAssetId(user.getAssetDetails().getAssetId());
-//            assetDetails.setSeatId(user.getAssetDetails().getSeatId());
-//            assetDetails.setHeadPhone(user.getAssetDetails().getHeadPhone());
-//
-//            assign.setProjectId(user.getAssignment().getProjectId());
-//            assign.setProjectName(user.getAssignment().getProjectName());
-//            assign.setTeam(user.getAssignment().getTeam());
+            skill.setApplication(user.getSkill().getApplication());
+            skill.setPortfolio(user.getSkill().getPortfolio());
+            skill.setCertification(user.getSkill().getCertification());
+            skill.setExperience(user.getSkill().getExperience());
+            skill.setStatus(user.getSkill().getStatus());
+            skill.setPrimarySkill(user.getSkill().getPrimarySkill());
+            skill.setSeniorDirector(user.getSkill().getSeniorDirector());
+
+            assetDetails.setAssetId(user.getDetails().getAssetId());
+            assetDetails.setSeatId(user.getDetails().getSeatId());
+            assetDetails.setHeadPhone(user.getDetails().getHeadPhone());
+
+            assign.setProjectId(user.getAssign().getProjectId());
+            assign.setProjectName(user.getAssign().getProjectName());
+            assign.setTeam(user.getAssign().getTeam());
 
             addUserRepository.save(userData);
             skillsRepository.save(skill);

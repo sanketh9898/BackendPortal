@@ -33,9 +33,9 @@ public class AllowanceServiceImpl implements AllowanceService{
     }
 
     @Override
-    public Response findById(Integer empId) throws Exception {
+    public Response findByUserId(Integer empId) throws Exception {
         logger.info("AllowanceServiceImpl ------Starts-----"+ empId);
-        Allowance allowance = allowanceRepository.findById(empId);
+        Allowance allowance = allowanceRepository.findByEmpId(empId);
         return ResponseHelper.getSuccessResponse("Success",allowance,200,"Success");
     }
 

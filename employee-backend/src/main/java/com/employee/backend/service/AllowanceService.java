@@ -10,7 +10,7 @@ public interface AllowanceService {
 
     Response findAll() throws Exception;
 
-    Response findById(Integer empId) throws Exception;
+    Response findByUserId(Integer empId) throws Exception;
 
     Response save(Allowance allowanceList) throws Exception;
 

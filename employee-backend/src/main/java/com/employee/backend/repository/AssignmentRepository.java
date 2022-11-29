@@ -8,11 +8,13 @@ import java.util.List;
 
 
 @Repository
-public interface AssignmentRepository extends JpaRepository<Assignments, String> {
+public interface AssignmentRepository extends JpaRepository<Assignments, Integer> {
 
     public List<Assignments> findAll();
 
-    public Assignments findById(Integer empId);
+    public Assignments findByEmpId(Integer empId);
+
+    Assignments save(Assignments assign);
 }
 
 

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/AssetDetails")
+@RequestMapping("/api/v1/assetDetails")
 @CrossOrigin(origins = "http://localhost:4200")
 public class AssetDetailsController {
 
@@ -20,9 +20,9 @@ public class AssetDetailsController {
         return assetDetailsService.findAll();
     }
 
-    @RequestMapping(value="/{id}",method = RequestMethod.GET)
+    @RequestMapping(value="/{empId}",method = RequestMethod.GET)
     public Response findById(@PathVariable("empId") Integer id) throws Exception{
-        return assetDetailsService.findById(id);
+        return assetDetailsService.findByUserId(id);
     }
 
     @RequestMapping(value = "/save",method = RequestMethod.POST)

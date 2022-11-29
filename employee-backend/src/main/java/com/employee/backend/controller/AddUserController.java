@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/AddUser")
+@RequestMapping("/api/v1/adduser")
 @CrossOrigin(origins = "http://localhost:4200")
 public class AddUserController {
 
@@ -22,9 +22,9 @@ public class AddUserController {
         return addUserService.findAll();
     }
 
-    @RequestMapping(value="/{id}",method = RequestMethod.GET)
+    @RequestMapping(value="/{empId}",method = RequestMethod.GET)
     public Response findById(@PathVariable("empId") Integer empId) throws Exception{
-        return addUserService.findById(empId);
+        return addUserService.findByUserId(empId);
     }
 
     @RequestMapping(value = "/save",method = RequestMethod.POST)

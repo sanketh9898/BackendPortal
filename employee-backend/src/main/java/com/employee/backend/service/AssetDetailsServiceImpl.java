@@ -34,9 +34,9 @@ public class AssetDetailsServiceImpl implements AssetDetailsService {
     }
 
     @Override
-    public Response findById(Integer empId) throws Exception {
+    public Response findByUserId(Integer empId) throws Exception {
         logger.info("AllowanceServiceImpl ------Starts-----"+ empId);
-        AssetDetails details = assetDetailsRepository.findById(empId);
+        AssetDetails details = assetDetailsRepository.findByEmpId(empId);
         return ResponseHelper.getSuccessResponse("Success",details,200,"Success");
     }
 

@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/Assignments")
+@RequestMapping("/api/v1/assignments")
 @CrossOrigin(origins = "http://localhost:4200")
 public class AssignmentController {
 
@@ -21,9 +21,9 @@ public class AssignmentController {
         return assignmentService.findAll();
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{empId}", method = RequestMethod.GET)
     public Response findById(@PathVariable("empId") Integer id) throws Exception {
-        return assignmentService.findById(id);
+        return assignmentService.findByUserId(id);
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)

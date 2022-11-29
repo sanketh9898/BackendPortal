@@ -7,7 +7,7 @@ public interface AssignmentService {
 
     Response findAll() throws Exception;
 
-    Response findById(Integer empId) throws Exception;
+    Response findByUserId(Integer empId) throws Exception;
 
     Response save (Assignments assign) throws Exception;
 

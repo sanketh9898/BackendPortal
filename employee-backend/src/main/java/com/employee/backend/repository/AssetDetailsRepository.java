@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface AssetDetailsRepository extends JpaRepository<AssetDetails, String> {
+public interface AssetDetailsRepository extends JpaRepository<AssetDetails, Integer> {
 
     public List<AssetDetails> findAll();
 
-    public AssetDetails findById(Integer empId);
+    public AssetDetails findByEmpId(Integer empId);
 }

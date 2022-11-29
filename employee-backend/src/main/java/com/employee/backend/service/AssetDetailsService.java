@@ -7,7 +7,7 @@ public interface AssetDetailsService {
 
     Response findAll() throws Exception;
 
-    Response findById(Integer empId) throws Exception;
+    Response findByUserId(Integer empId) throws Exception;
 
     Response save(AssetDetails asset)throws Exception;
 

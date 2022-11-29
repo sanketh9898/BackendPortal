@@ -33,9 +33,9 @@ public class AssignmentServiceImpl implements AssignmentService{
     }
 
     @Override
-    public Response findById(Integer empId) throws Exception {
+    public Response findByUserId(Integer empId) throws Exception {
         logger.info("AllowanceServiceImpl ------Starts-----"+ empId);
-        Assignments assignments = assignmentRepository.findById(empId);
+        Assignments assignments = assignmentRepository.findByEmpId(empId);
         return ResponseHelper.getSuccessResponse("Success",assignments,200,"Success");
     }
 

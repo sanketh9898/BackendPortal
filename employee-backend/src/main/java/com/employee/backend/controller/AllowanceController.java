@@ -23,9 +23,9 @@ public class AllowanceController {
         return allowanceService.findAll();
     }
 
-    @RequestMapping(value="/{id}",method = RequestMethod.GET)
-    public Response findById(@PathVariable("empId") Integer id) throws Exception{
-        return allowanceService.findById(id);
+    @RequestMapping(value="/{empId}",method = RequestMethod.GET)
+    public Response findByUserId(@PathVariable("empId") Integer id) throws Exception{
+        return allowanceService.findByUserId(id);
     }
 
     @RequestMapping(value = "/save",method = RequestMethod.POST)
