@@ -2,9 +2,13 @@ package com.employee.backend.controller;
 
 
 import com.employee.backend.helper.Response;
+import com.employee.backend.model.Allowance;
 import com.employee.backend.service.AllowanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/internetAllowance")
@@ -19,9 +23,15 @@ public class AllowanceController {
         return allowanceService.findAll();
     }
 
-    @RequestMapping(value="/{id}",method = RequestMethod.GET)
-    public Response findById(@PathVariable("empId") Integer id) throws Exception{
-        return allowanceService.findById(id);
+    @RequestMapping(value="/{empId}",method = RequestMethod.GET)
+    public Response findByUserId(@PathVariable("empId") Integer id) throws Exception{
+        return allowanceService.findByUserId(id);
+    }
+
+    @RequestMapping(value = "/save",method = RequestMethod.POST)
+    public Response save(@RequestBody Allowance allowanceList) throws Exception{
+        return allowanceService.save(allowanceList);
+
     }
 
 

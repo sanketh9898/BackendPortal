@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 @Entity
-@Table(name="AssetDetails")
+@Table(name="assetDetails")
 @Getter
 @Setter
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -16,16 +16,24 @@ public class AssetDetails implements Serializable {
 
     private static final long serialVersionUID = 4050660680047579957L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name = "assetId")
     private Integer assetId;
 
-    @OneToMany(mappedBy = "UserId", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Set<User> user;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="empId")
+    private Integer empId;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(referencedColumnName="userId")
+    private User user;
 
     @Column(name = "empName")
     private String empName;
+
+    @Column(name = "seatId")
+    private String seatId;
 
     @Column(name = "headPhone")
     private String HeadPhone;

@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 @Entity
-@Table(name="UserRole")
+@Table(name="assignments")
 @Getter
 @Setter
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -21,9 +21,9 @@ public class Assignments implements Serializable {
     @Column(name="empId")
     private Integer empId;
 
-    @OneToMany
-    @JoinColumn(name="userId")
-    private Set<User> user;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(referencedColumnName="userId")
+    private User user;
 
     @Column(name="EmpName")
     private String name;
@@ -36,6 +36,9 @@ public class Assignments implements Serializable {
 
    @Column(name="Team")
     private String team;
+
+   @Column(name="ProjectName")
+   private String ProjectName;
 
    @Column(name="Application")
     private String application;
