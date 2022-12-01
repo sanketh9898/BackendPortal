@@ -18,7 +18,7 @@ public class AssetDetails implements Serializable {
 
 
     @Column(name = "assetId")
-    private Integer assetId;
+    private String assetId;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

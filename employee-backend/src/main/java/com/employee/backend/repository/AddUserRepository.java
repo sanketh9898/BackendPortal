@@ -13,7 +13,7 @@ public interface AddUserRepository extends JpaRepository<User, Integer>{
 
     public List<User> findAll();
 
-    public User findByUserId(Integer empId);
+    public User findByEmpId(Integer empId);
 
     public User save(User user);
 

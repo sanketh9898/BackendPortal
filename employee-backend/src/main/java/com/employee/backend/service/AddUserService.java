@@ -9,7 +9,7 @@ public interface AddUserService {
 
     Response findAll() throws Exception;
 
-    Response findByUserId(Integer empId) throws Exception;
+    Response findByEmpId(Integer empId) throws Exception;
 
     Response save(User user) throws Exception;
 

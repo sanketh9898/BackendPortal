@@ -24,7 +24,7 @@ public class AddUserController {
 
     @RequestMapping(value="/{empId}",method = RequestMethod.GET)
     public Response findById(@PathVariable("empId") Integer empId) throws Exception{
-        return addUserService.findByUserId(empId);
+        return addUserService.findByEmpId(empId);
     }
 
     @RequestMapping(value = "/save",method = RequestMethod.POST)
