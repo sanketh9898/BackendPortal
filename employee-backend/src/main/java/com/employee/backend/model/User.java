@@ -23,7 +23,7 @@ public class User implements Serializable {
     private Integer empId;
 
     @Column(name="userId")
-    private String userId;
+    private Integer userId;
 
     @Column(name="name")
     private String name;
@@ -47,31 +47,44 @@ public class User implements Serializable {
     private String workExp;
 
     @Transient
-    private List<Allowance> allowance;
+    private String assetId;
 
     @Transient
-    private List<AssetDetails> assetDetails ;
+    private String seatId;
 
     @Transient
-    private List<Assignments> assignment;
+    private String Headphone;
 
     @Transient
-    private List<Skills> skills;
+    private String projectId;
 
-    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private UserRole userRole;
+    @Transient
+    private String projectName;
 
-    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private Skills skill;
+    @Transient
+    private String Team;
 
-    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private Allowance allow;
+    @Transient
+    private String Application;
 
-    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private AssetDetails details;
+    @Transient
+    private String portfolio;
 
-    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private Assignments assign;
+    @Transient
+    private String certification;
+
+    @Transient
+    private String Experience;
+
+    @Transient
+    private String status;
+
+    @Transient
+    private String primarySkill;
+
+    @Transient
+    private String seniorDirector;
+
 
 
 
